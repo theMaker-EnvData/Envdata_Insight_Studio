@@ -1,0 +1,66 @@
+[2025-10-27 00:28] INFO REGION_BBOX=(116.4, 28.2, 140.0, 45.6) TZ=Asia/Seoul REPORT_CUTOFF_KST=06:00
+[2025-10-27 00:28] INFO Using CAMS dataset ECMWF/CAMS/NRT
+[2025-10-27 00:28] INFO Using wind dataset NOAA/GFS0P25
+[2025-10-27 00:28] INFO [CAMS] 20251027_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251027_0600_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251027_0900KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251027_0900_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251027_1200KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251027_1200_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251027_1500KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251027_1500_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251027_1800KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251027_1800_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251027_2100KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251027_2100_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251028_0000KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251028_0000_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251028_0300KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251028_0300_native.tif
+[2025-10-27 00:28] INFO [CAMS] 20251028_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_cams_20251028_0600_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251027_0600KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251027_0600_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251027_0900KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251027_0900_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251027_1200KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251027_1200_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251027_1500KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251027_1500_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251027_1800KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251027_1800_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251027_2100KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251027_2100_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251028_0000KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251028_0000_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251028_0300KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251028_0300_native.tif
+[2025-10-27 00:29] INFO [WIND] exporting 20251028_0600KST frames=15 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251027/gee_wind_20251028_0600_native.tif
+[2025-10-27 00:30] INFO CAMS saved: 9/9, WIND saved: 9/9
+[2025-10-27 08:46] INFO REGION_BBOX=(116.4, 28.2, 140.0, 45.6) TZ=Asia/Seoul REPORT_CUTOFF_KST=06:00
+[2025-10-27 08:46] INFO Using CAMS dataset ECMWF/CAMS/NRT
+[2025-10-27 08:46] INFO Using wind dataset NOAA/GFS0P25
+[2025-10-27 08:46] INFO [CAMS] 20251028_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_0600_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251028_0900KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_0900_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251028_1200KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_1200_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251028_1500KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_1500_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251028_1800KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_1800_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251028_2100KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_2100_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251029_0000KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251029_0000_native.tif
+[2025-10-27 08:46] INFO [CAMS] 20251029_0300KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251029_0300_native.tif
+[2025-10-27 08:47] INFO [CAMS] 20251029_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251029_0600_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251028_0600KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_0600_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251028_0900KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_0900_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251028_1200KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_1200_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251028_1500KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_1500_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251028_1800KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_1800_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251028_2100KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_2100_native.tif
+[2025-10-27 08:47] INFO [WIND] exporting 20251029_0000KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251029_0000_native.tif
+[2025-10-27 08:48] INFO [WIND] exporting 20251029_0300KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251029_0300_native.tif
+[2025-10-27 08:48] INFO [WIND] exporting 20251029_0600KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251029_0600_native.tif
+[2025-10-27 08:48] INFO CAMS saved: 9/9, WIND saved: 9/9
+[2025-10-27 08:54] INFO REGION_BBOX=(116.4, 28.2, 140.0, 45.6) TZ=Asia/Seoul REPORT_CUTOFF_KST=06:00
+[2025-10-27 08:54] INFO Using CAMS dataset ECMWF/CAMS/NRT
+[2025-10-27 08:54] INFO Using wind dataset NOAA/GFS0P25
+[2025-10-27 08:54] INFO [CAMS] 20251028_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_0600_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251028_0900KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_0900_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251028_1200KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_1200_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251028_1500KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_1500_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251028_1800KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_1800_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251028_2100KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251028_2100_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251029_0000KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251029_0000_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251029_0300KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251029_0300_native.tif
+[2025-10-27 08:55] INFO [CAMS] 20251029_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_cams_20251029_0600_native.tif
+[2025-10-27 08:55] INFO [WIND] exporting 20251028_0600KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_0600_native.tif
+[2025-10-27 08:55] INFO [WIND] exporting 20251028_0900KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_0900_native.tif
+[2025-10-27 08:55] INFO [WIND] exporting 20251028_1200KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_1200_native.tif
+[2025-10-27 08:55] INFO [WIND] exporting 20251028_1500KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_1500_native.tif
+[2025-10-27 08:56] INFO [WIND] exporting 20251028_1800KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_1800_native.tif
+[2025-10-27 08:56] INFO [WIND] exporting 20251028_2100KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251028_2100_native.tif
+[2025-10-27 08:56] INFO [WIND] exporting 20251029_0000KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251029_0000_native.tif
+[2025-10-27 08:56] INFO [WIND] exporting 20251029_0300KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251029_0300_native.tif
+[2025-10-27 08:56] INFO [WIND] exporting 20251029_0600KST frames=13 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251028/gee_wind_20251029_0600_native.tif
+[2025-10-27 08:56] INFO CAMS saved: 9/9, WIND saved: 9/9

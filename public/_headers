@@ -1,0 +1,11 @@
+/reports/manifest.json
+  Cache-Control: no-store, must-revalidate
+
+/reports/*.html
+  Cache-Control: no-store, must-revalidate
+
+/tiles/*
+  Cache-Control: public, max-age=604800, immutable
+
+/reports/*.png
+  Cache-Control: public, max-age=604800, immutable

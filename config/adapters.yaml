@@ -1,0 +1,157 @@
+# config/adapters.yaml
+version: 2
+description: >
+  CAMS-only pipeline using ecmwf-datastores-client. Server-side subsetting for
+  variables/time/area; download as a single GRIB (unarchived). Output normalized
+  to the common schema used by build_json.
+
+defaults:
+  timezone_raw: "UTC"           # raw time zone from source
+  out_units:
+    concentration: "µg/m3"
+    wind_speed: "m/s"
+    wind_dir: "deg"
+
+schema:  # unified output schema for downstream steps (JSON, R plots)
+  fields:
+    - lat
+    - lon
+    - ts            # ISO8601 in UTC
+    - pm2_5
+    - pm10
+    - no2
+    - o3
+    - co
+    - so2
+    - wind_u
+    - wind_v
+    - wind_speed
+    - wind_dir
+
+sources:
+  cams:
+    enabled: true
+    client: "ecmwf-datastores-client"
+
+    # ---- Request contract passed to the client (Codex consumes these keys) ----
+    request:
+      # ADS dataset id (forecasts). If you later prefer reanalysis, switch here.
+      dataset: "cams-global-atmospheric-composition-forecasts"
+
+      # Variables to retrieve (minimal set). Names follow ADS variable ids.
+      variables:
+        # mixing ratio (kg/kg): converted to µg/m3 downstream
+        - pm2p5_mmr
+        - pm10_mmr
+        - no2_mmr
+        - o3_mmr
+        - co_mmr
+        - so2_mmr
+        # winds at 10 m (m/s)
+        - u10
+        - v10
+
+      # Spatial subset — bbox as "W,S,E,N" (client will normalize if needed)
+      area_bbox_env: "${GRID_BBOX}"     # e.g., 116.4,28.2,140.0,45.6
+
+      # Temporal subset — computed by runner from REPORT_CUTOFF_KST=05:00,
+      # TIME_STEP_HOURS=3, TIME_STEPS_COUNT=9, TZ=Asia/Seoul, then converted to UTC.
+      time_policy:
+        reference_kst_env: "${REPORT_CUTOFF_KST}"
+        step_hours_env: "${TIME_STEP_HOURS}"
+        steps_count_env: "${TIME_STEPS_COUNT}"
+        tz_env: "${TZ}"
+
+      # File/transport format from server
+      data_format: "grib"               # prefer GRIB; open via cfgrib/xarray
+      download_format: "unarchived"     # single file, not zipped
+      filename_pattern: "cams_{YYYYMMDD}_0500_grid0p4.grib"
+
+      # Performance/robustness knobs (optional)
+      retry:
+        max_env: "${RETRY_MAX}"
+        backoff_min_env: "${RETRY_BACKOFF_MIN}"
+
+    # ---- Field mapping & unit conversion (applied after download/decode) ----
+    mapping:
+      lat: "lat"
+      lon: "lon"
+      ts: "time"   # keep UTC
+
+      # mixing ratio (kg/kg) -> µg/m3. Converter name resolved by transformer.
+      pm2_5:
+        from: "pm2p5_mmr"
+        convert: "mmr_to_ugm3"
+        # PM is mixture; use density-based factor at STP or runtime profile
+        molar_mass: 1.0
+      pm10:
+        from: "pm10_mmr"
+        convert: "mmr_to_ugm3"
+        molar_mass: 1.0
+      no2:
+        from: "no2_mmr"
+        convert: "mmr_to_ugm3"
+        molar_mass: 46.0055
+      o3:
+        from: "o3_mmr"
+        convert: "mmr_to_ugm3"
+        molar_mass: 47.9982
+      co:
+        from: "co_mmr"
+        convert: "mmr_to_ugm3"
+        molar_mass: 28.0101
+      so2:
+        from: "so2_mmr"
+        convert: "mmr_to_ugm3"
+        molar_mass: 64.066
+
+      wind_u:
+        from: "u10"
+        units: "m/s"
+      wind_v:
+        from: "v10"
+        units: "m/s"
+      wind_speed:
+        compute: "sqrt(u10^2 + v10^2)"
+        units: "m/s"
+      wind_dir:
+        # meteorological direction: 0°=North, clockwise
+        compute: "deg_met(atan2(u10, v10))"
+        units: "deg"
+
+    # ---- Quality control rules ----
+    qc:
+      rules:
+        - name: bbox_filter
+          kind: "drop_outside_bbox"
+          params:
+            bbox_env: "${GRID_BBOX}"
+        - name: non_negative_pm
+          kind: "range"
+          fields: [pm2_5, pm10]
+          min: 0
+          max: 1000
+        - name: gas_range
+          kind: "range"
+          fields: [no2, o3, co, so2]
+          min: 0
+          max: 5000
+        - name: wind_reasonable
+          kind: "range"
+          fields: [wind_speed]
+          min: 0
+          max: 60
+      on_fail: "drop_and_log"   # drop record, write reason to logs
+
+  # KMA adapter kept as a stub for optional future fallback/merge (disabled)
+  kma:
+    enabled: false
+    notes: "Use only if ENABLE_KMA=true; acts as fallback for winds or met vars."
+    request:
+      service: "VilageFcst"
+      variables: [UUU, VVV]
+    mapping:
+      wind_u: "UUU"
+      wind_v: "VVV"
+    merge:
+      strategy: "cams_primary_kma_fallback"

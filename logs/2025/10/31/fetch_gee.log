@@ -1,0 +1,21 @@
+[2025-10-30 18:07] INFO REPORT_DAY(KST cutoff day) = 2025-10-31  cutoff=06:00  TZ=Asia/Seoul
+[2025-10-30 18:07] INFO TIMES (KST / UTC): 2025-10-31 06:00 KST / 2025-10-30 21:00 UTC | 2025-10-31 09:00 KST / 2025-10-31 00:00 UTC | 2025-10-31 12:00 KST / 2025-10-31 03:00 UTC | 2025-10-31 15:00 KST / 2025-10-31 06:00 UTC | 2025-10-31 18:00 KST / 2025-10-31 09:00 UTC | 2025-10-31 21:00 KST / 2025-10-31 12:00 UTC | 2025-11-01 00:00 KST / 2025-10-31 15:00 UTC | 2025-11-01 03:00 KST / 2025-10-31 18:00 UTC | 2025-11-01 06:00 KST / 2025-10-31 21:00 UTC
+[2025-10-30 18:07] INFO [CAMS] 20251031_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251031_0600_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251031_0900KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251031_0900_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251031_1200KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251031_1200_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251031_1500KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251031_1500_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251031_1800KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251031_1800_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251031_2100KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251031_2100_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251101_0000KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251101_0000_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251101_0300KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251101_0300_native.tif
+[2025-10-30 18:07] INFO [CAMS] 20251101_0600KST downloading -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_cams_20251101_0600_native.tif
+[2025-10-30 18:07] INFO [WIND] exporting 20251031_0600KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251031_0600_native.tif
+[2025-10-30 18:07] INFO [WIND] exporting 20251031_0900KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251031_0900_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251031_1200KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251031_1200_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251031_1500KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251031_1500_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251031_1800KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251031_1800_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251031_2100KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251031_2100_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251101_0000KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251101_0000_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251101_0300KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251101_0300_native.tif
+[2025-10-30 18:08] INFO [WIND] exporting 20251101_0600KST frames=17 -> /opt/EnvData_Insight_Studio/data/raw/gee/20251031/gee_wind_20251101_0600_native.tif
+[2025-10-30 18:08] INFO CAMS saved: 9/9, WIND saved: 9/9

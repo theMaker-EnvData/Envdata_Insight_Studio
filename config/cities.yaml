@@ -1,0 +1,14 @@
+KR:
+  - { name: "Seoul",     lat: 37.5665, lon: 126.9780 }
+  - { name: "Daejeon",   lat: 36.3504, lon: 127.3845 }
+  - { name: "Gwangju",   lat: 35.1595, lon: 126.8526 }
+  - { name: "Busan",     lat: 35.1796, lon: 129.0756 }
+  - { name: "Daegu",     lat: 35.8714, lon: 128.6014 }
+CN:
+  - { name: "Shanghai",  lat: 31.2304, lon: 121.4737 }
+  - { name: "Qingdao",   lat: 36.0671, lon: 120.3826 }
+  - { name: "Tianjin",   lat: 39.3434, lon: 117.3616 }
+JP:
+  - { name: "Fukuoka",   lat: 33.5904, lon: 130.4017 }
+  - { name: "Osaka",     lat: 34.6937, lon: 135.5023 }
+  - { name: "Hiroshima", lat: 34.3853, lon: 132.4553 }

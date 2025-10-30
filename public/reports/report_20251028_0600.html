@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EnvData Insight Studio – Daily Overview</title>
+<style>
+  :root {
+    --bg:#fff; --fg:#111; --muted:#666; --border:#d6dbe6; --grid:#e9edf5;
+    --soft:#f5f7fb; --soft2:#f0f3fa; --warn-bg:#ffe9e9; --top3:#c00;
+    --viz-width: 860px;
+  }
+  body{ margin:0 auto; max-width:960px; padding:32px 20px;
+        font-family:-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,Apple SD Gothic Neo,Malgun Gothic,sans-serif;
+        line-height:1.6; color:var(--fg) }
+  header h1{ margin:0; font-size:22px; font-weight:700 }
+  header .meta{ margin:4px 0 24px; color:#555; font-size:13px }
+  section h2{ font-size:18px; margin:24px 0 8px }
+  .bullets{ margin:8px 0 12px 18px }
+  .bullets li{ margin:2px 0 }
+  .chart img{ width:var(--viz-width); max-width:100%; display:block; border:none; margin:0 auto 10px }
+  .montage img{ width:100%; display:block; border:none; margin:8px 0 12px }
+  .table-wrap{ position:relative; width:var(--viz-width); max-width:100%; margin:8px auto 18px }
+  .unit-label{ position:absolute; right:0; top:-20px; font-size:12px; color:#666 }
+  table.city-table{ width:100%; border-collapse:collapse; table-layout:fixed; text-align:center;
+                     font-variant-numeric:tabular-nums; border:1px solid var(--border); background:#fff;
+                     border-radius:10px; overflow:hidden }
+  .city-table thead th, .city-table tbody td{ border-bottom:1px solid var(--grid); border-right:1px solid var(--grid);
+                                               padding:6px 8px; font-size:13px; text-align:center }
+  .city-table thead th:last-child, .city-table tbody td:last-child{ border-right:0 }
+  .city-table thead th{ background:var(--soft); color:#222; font-weight:600 }
+  .city-table thead .group-row th.group{ background:var(--soft2); color:#223; text-align:center; font-weight:700 }
+  .city-table td.thresh{ background:var(--warn-bg) }
+  .city-table td.top3{ color:var(--top3); font-weight:700 }
+  footer{ margin-top:28px; color:#666; font-size:12px; text-align:center }
+</style>
+</head>
+<body>
+<header>
+  <h1>EnvData Insight Studio – Daily Report (2025년 10월 28일)</h1>
+  <div class="meta">데이터 출처: ECMWF/CAMS(PM2.5) · NOAA/GFS(풍향, 풍속)</div>
+</header>
+
+<main>
+  <section id="summary">
+    <h2>1) 종합 요약</h2>
+    <p>아침에는 전국 대부분 지역에서 대체로 낮은 농도를 보이겠으나 밤사이에는 수도권을 중심으로 농도가 상승하겠습니다. <b>서울은 00:00에 50 μg/m³ 안팎으로 35 μg/m³ 기준을 넘기겠습니다</b></p>
+    <figure class="montage"><img src="../tiles/20251028/pm25_wind_20251028_KST_montage.png" alt="PM2.5 3×3 몽타주"></figure>
+  </section>
+
+  <section id="impact">
+    <ul class='bullets'><li>수도권 밤사이 서울 00:00 50 μg/m³로 35 μg/m³ 기준 초과 가능성 높음</li><li>톈진 09:00 92 μg/m³ 고농도 발생, 서풍 성분으로 중부권 단기 영향 예상</li></ul>
+    <h2>2) 영향 해석</h2>
+    <p>중국 톈진의 오전 09:00 고농도(약 92 μg/m³)가 서쪽에서 동쪽으로 향하는 흐름을 타고 한반도로 일부 유입되겠고 이로 인해 중부권에 일시적 영향을 주겠습니다. <b>야간 약한 대기혼합과 역전층이 배경농도 축적을 촉진하겠으며</b> 저층 바람 약화와 분지 지형이 체류 시간을 늘리겠습니다</p>
+  </section>
+
+  <section id="table">
+    <h2>3) 도시별 예보</h2>
+    <figure class="chart"><img src="timeseries_20251028_0600.png" alt="PM2.5 시계열 그래프"></figure>
+    
+<div class="table-wrap">
+  <div class="unit-label">(단위: μg/m³)</div>
+  <table class="city-table">
+    <thead>
+      <tr><th class="stub time-col">시간</th><th>서울</th><th>대전</th><th>광주</th><th>부산</th><th>대구</th><th>상하이</th><th>칭다오</th><th>톈진</th><th>후쿠오카</th><th>오사카</th><th>히로시마</th></tr>
+      <tr class="group-row"><th></th><th class="group" colspan="5">국내</th><th class="group" colspan="3">중국</th><th class="group" colspan="3">일본</th></tr>
+    </thead>
+    <tbody><tr><td class="time-col"><b>06:00</b></td><td>19</td><td>15</td><td>9</td><td>8</td><td>12</td><td class="thresh">37</td><td>15</td><td class="thresh">52</td><td>8</td><td>9</td><td>9</td></tr><tr><td class="time-col"><b>09:00</b></td><td>26</td><td>16</td><td>10</td><td>9</td><td>12</td><td class="thresh">56</td><td>16</td><td class="thresh top3">92</td><td>8</td><td>8</td><td>9</td></tr><tr><td class="time-col"><b>12:00</b></td><td>12</td><td>8</td><td>7</td><td>6</td><td>6</td><td>22</td><td>13</td><td class="thresh">69</td><td>6</td><td>8</td><td>7</td></tr><tr><td class="time-col"><b>15:00</b></td><td>12</td><td>9</td><td>6</td><td>6</td><td>5</td><td>22</td><td>13</td><td class="thresh">60</td><td>7</td><td>7</td><td>7</td></tr><tr><td class="time-col"><b>18:00</b></td><td>24</td><td>18</td><td>11</td><td>11</td><td>14</td><td>32</td><td>13</td><td class="thresh top3">70</td><td>8</td><td>10</td><td>7</td></tr><tr><td class="time-col"><b>21:00</b></td><td class="thresh">44</td><td>27</td><td>15</td><td>15</td><td>20</td><td class="thresh">48</td><td>12</td><td class="thresh top3">77</td><td>8</td><td>12</td><td>8</td></tr><tr><td class="time-col"><b>00:00</b></td><td class="thresh">50</td><td>29</td><td>18</td><td>17</td><td>23</td><td class="thresh">44</td><td>10</td><td class="thresh">64</td><td>9</td><td>16</td><td>8</td></tr><tr><td class="time-col"><b>03:00</b></td><td class="thresh">41</td><td>27</td><td>19</td><td>16</td><td>23</td><td>33</td><td>9</td><td class="thresh">51</td><td>7</td><td>13</td><td>7</td></tr><tr><td class="time-col"><b>06:00</b></td><td>32</td><td>26</td><td>21</td><td>15</td><td>24</td><td>31</td><td>9</td><td class="thresh">45</td><td>6</td><td>14</td><td>7</td></tr></tbody>
+  </table>
+</div>
+
+  </section>
+
+  <section id="health">
+    <h2>4) 생활·보건 안내</h2>
+    <p>민감군은 밤 시간대(00:00~03:00) 외출을 자제하고 보건용 마스크 착용을 권하겠습니다. 일반인은 낮 시간대(12:00 전후)에 실외 활동을 집중하시기를 권장드리겠습니다. 실내 환기는 오후 14:00~16:00에 실시하고 고농도 시간대에는 공기청정기 가동을 권고드리겠습니다. 야간에는 배경농도가 쌓이겠으니 창문을 닫고 실내 머무르기를 유의하겠습니다. 외출 전 지역별 예보와 실시간 지수를 확인하여 활동 시점을 조정하시기를 권하겠습니다</p>
+  </section>
+</main>
+
+<footer>© 2025 EnvData Insight Studio · Source: ECMWF/CAMS, NOAA/GFS</footer>
+</body></html>

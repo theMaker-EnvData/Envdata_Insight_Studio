@@ -1,0 +1,9 @@
+<!doctype html><html><body>
+<h2>EnvData Insight Studio</h2>
+<p>Latest: {{ latest }}</p>
+<ul>
+  {% for d in dates %}
+    <li><a href="/report/{{ d|replace('-','') }}">{{ d }}</a></li>
+  {% endfor %}
+</ul>
+</body></html>

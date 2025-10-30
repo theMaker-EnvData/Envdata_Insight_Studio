@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EnvData Insight Studio – Daily Reports</title>
+<style>
+  :root{--w:960px}
+  body{margin:0 auto;max-width:var(--w);padding:24px 16px;font-family:-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,Apple SD Gothic Neo,Malgun Gothic,sans-serif;line-height:1.5}
+  header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h1{font-size:20px;margin:0 8px 0 0}
+  .controls{display:flex;align-items:center;gap:8px}
+  select,button{font-size:14px;padding:6px 10px}
+  .hint{color:#666;font-size:12px;margin:8px 0 12px}
+  #viewer{width:100%;border:1px solid #e1e5ef;border-radius:10px}
+  .error{background:#fff3f3;border:1px solid #ffd3d3;color:#a00;padding:10px;border-radius:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>EnvData Insight Studio – Daily Reports</h1>
+  <div class="controls">
+    <button id="prevBtn" aria-label="이전 날짜">&lt;</button>
+    <select id="dateSel"></select>
+    <button id="nextBtn" aria-label="다음 날짜">&gt;</button>
+    <button id="openBtn">새 탭으로 열기</button>
+  </div>
+</header>
+<p class="hint">드롭다운에서 날짜를 선택하세요. 보고서는 아래 뷰어에서 바로 열립니다.</p>
+
+<div id="status"></div>
+<iframe id="viewer" title="Daily Report" src="about:blank" loading="lazy"></iframe>
+
+<script>
+(async function(){
+  const manifestUrl = 'manifest.json';                  // this file sits in /public/reports/
+  const reportHref  = (d)=> `report_${d}_0600.html`;    // same folder
+  const q = new URLSearchParams(location.search);
+
+  const $sel   = document.getElementById('dateSel');
+  const $prev  = document.getElementById('prevBtn');
+  const $next  = document.getElementById('nextBtn');
+  const $open  = document.getElementById('openBtn');
+  const $view  = document.getElementById('viewer');
+  const $stat  = document.getElementById('status');
+
+  function showError(msg){
+    $stat.innerHTML = `<div class="error">${msg}</div>`;
+  }
+
+  let dates = [];
+  let cur = null;
+
+  try{
+    const res = await fetch(manifestUrl, {cache:'no-cache'});
+    if(!res.ok) throw new Error(`manifest ${res.status}`);
+    const mf = await res.json();
+    dates = (mf.dates||[]).slice();
+    if(!dates.length) throw new Error('no dates in manifest');
+
+    // fill dropdown (assume dates[0] is latest)
+    $sel.innerHTML = '';
+    dates.forEach(d=>{
+      const o=document.createElement('option');
+      o.value=d; o.textContent=d; $sel.appendChild(o);
+    });
+
+    const paramDate = q.get('date');
+    cur = dates.includes(paramDate) ? paramDate : (mf.latest || dates[0]);
+    $sel.value = cur;
+    loadReport(cur, false);
+
+  }catch(e){
+    showError('목차(manifest.json)를 불러오지 못했습니다. 배포 경로를 확인하세요.');
+    console.error(e);
+    return;
+  }
+
+  function loadReport(d, pushUrl=true){
+    cur = d;
+    $sel.value = d;
+    $view.src = reportHref(d);
+    if(pushUrl){
+      const url = new URL(location.href);
+      url.searchParams.set('date', d);
+      history.replaceState(null, '', url);
+    }
+  }
+
+  function move(offset){
+    const i = dates.indexOf(cur);
+    if(i === -1) return;
+    const j = Math.min(Math.max(i + offset, 0), dates.length-1);
+    if(j !== i) loadReport(dates[j]);
+  }
+
+  // controls
+  $sel.addEventListener('change', ()=> loadReport($sel.value));
+  $prev.addEventListener('click', ()=> move(+1)); // dates[0]가 최신 → +1은 과거
+  $next.addEventListener('click', ()=> move(-1));
+  $open.addEventListener('click', ()=> window.open(reportHref(cur), '_blank'));
+
+  // auto-resize iframe (same-origin)
+  function resizeIframe(){
+    try{
+      const doc = $view.contentDocument || $view.contentWindow.document;
+      if(!doc) return;
+      const h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, 800);
+      $view.style.height = h + 'px';
+    }catch(_){}
+  }
+  $view.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', ()=> setTimeout(resizeIframe, 100));
+})();
+</script>
+</body>
+</html>

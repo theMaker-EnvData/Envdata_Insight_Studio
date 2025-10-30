@@ -1,0 +1,28 @@
+# deps
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+
+# env/keys
+.env
+.env.*
+config/.env
+
+# raw/large non-web assets
+data/
+backup/
+*.parquet
+*.tif
+*.tiff
+*.nc
+*.csv
+*.zip
+*.zst
+*.tar*
+*.mp4
+
+# os/editor
+.DS_Store
+.idea/
+.vscode/
